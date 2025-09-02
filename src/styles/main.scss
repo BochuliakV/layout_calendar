@@ -51,21 +51,11 @@ body {
     }
   }
 
-  &--month-length-28 {
-    .calendar__day:nth-child(n + 29) {
-      display: none;
-    }
-  }
-
-  &--month-length-29 {
-    .calendar__day:nth-child(n + 30) {
-      display: none;
-    }
-  }
-
-  &--month-length-30 {
-    .calendar__day:nth-child(n + 31) {
-      display: none;
+  @for $days from 28 through 30 {
+    &--month-length-#{$days} {
+      .calendar__day:nth-child(n + #{$days + 1}) {
+        display: none;
+      }
     }
   }
 
