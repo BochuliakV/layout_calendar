@@ -52,8 +52,13 @@ body {
     }
   }
 
-  @each $day, $index in ($week-days)
-  {
+  &--month-length-29 {
+    .calendar__day:nth-child(n + 30) {
+      display: none;
+    }
+  }
+  
+  @each $day, $index in ($week-days) {
     &--start-day-#{$day} .calendar__day:nth-child(1) {
       margin-left: calc(($day-cell-size + $gap) * #{$index});
     }
